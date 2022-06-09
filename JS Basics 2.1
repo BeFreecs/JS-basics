@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+  <meta name="viewport" content="width=device-width" , intial-scale="1.0" />
+  <link rel="Shortcut-icon" href="./JS logo.png" />
+  <title>Cour JS Part2.1</title>
+  <link rel="Stylesheet" href="./Style.css" />
+
+  <body>
+    <div>
+      <h1>Ola Todos !</h1>
+    </div>
+    <br />
+    <main class="questionContainer">
+      <div class="click-event-box">
+        <h4>Quelle est la capitale de la France ?</h4>
+        <button id="Btn1">Paris</button>
+        <button id="Btn2">Katmandou</button>
+        <p id="p1">La bonne réponse est Paris</p>
+        <p id="p2">Mauvaise réponse... essaye encore</p>
+      </div>
+
+      <div class="mousemove"></div>
+    </main>
+    <div class="keypress-box">
+      <h2>Vous appuyez sur la touche : <span id="key"></span></h2>
+    </div>
+    <nav class="nav">
+      <ul>
+        <li>Accueil</li>
+        <li>Services</li>
+        <li>Contacts</li>
+      </ul>
+    </nav>
+
+    <form action="" class="form">
+      <input type="text" placeholder="Entrez votre nom" />
+      <select>
+        <option value="">Séléctionnez votre langage favoris</option>
+        <option value="PHP">PHP</option>
+        <option value="Python">Python</option>
+        <option value="JavaScript">JavaScript></option>
+      </select>
+      <!-- <br /> -->
+      <input type="checkbox" id="cgv" />
+      <label for="cgv" class="label-1">Veuillez accepter les CGV</label><br />
+      <input type="submit" value="valider" />
+      <div></div>
+    </form>
+    <br />
+    <br />
+    <!-- Calculator -->
+    <div class="special"><h3>Calculator</h3></div>
+    <br />
+    <div class="app">
+      <h3 class="h3" id="result"></h3>
+      <button class="btn" id="9">9</button>
+      <button class="btn" id="8">8</button>
+      <button class="btn" id="7">7</button>
+      <button class="btn" id="6">6</button>
+      <button class="btn" id="5">5</button>
+      <button class="btn" id="4">4</button>
+      <button class="btn" id="3">3</button>
+      <button class="btn" id="2">2</button>
+      <button class="btn" id="1">1</button>
+      <button class="btn" id="0">0</button>
+      <button class="btn" id=".">.</button>
+      <button class="btn" id="+">+</button>
+      <button class="btn" id="-">-</button>
+      <button id="equal">=</button>
+      <button class="btn" id="*">*</button>
+      <button class="btn" id="/">/</button>
+      <button id="clear">C</button>
+    </div>
+  </body>
+
+  <script src="./Index.js"></script>
+</html>
+
+// window.alert("Coucou les amis");
+
+// ------------------------------------------------------ // 
+// ----------------------- JS --------------------------- //
+// ------------------------------------------------------ //
+
+// --------------------- CLICK EVENT --------------------- // 
+
+const Container = document.querySelector(".click-event-box");
+const Btn1 = document.getElementById("Btn1");
+const Btn2 = document.getElementById("Btn2");
+const correctAnswer = document.getElementById("p1");
+const wrongAnswer = document.getElementById("p2");
+let answer;
+// Container.addEventListener("click", () => {
+//   //   Container.classList.add("question-click");
+//   Container.classList.toggle("question-click");
+// });
+
+// Container.addEventListener("click", () => {
+//   Container.classList.add("question-click");
+// });
+
+// Btn1.addEventListener("click", () => {
+//   // alervotre nom");
+//   // Container.innerHTML += "<h3>Bravo " + answer + "</h3>";
+//   correctAnswer.classList.add("show-response-true");
+//   correctAnswer.style.t("En même temps elle était facile...");
+//   // answer = prompt("Entrez visibility = "visible";
+//   correctAnswer.style.background = "green";
+//   wrongAnswer.style.visibility = "hidden";
+//   Container.classList.add("question-click");
+// });
+
+// Btn2.addEventListener("click", () => {
+//   confirm(
+//     "Non mais sérieux... T'as vraiment répondu Katmandou vieille chèvre ?"
+//   );
+//   window.open("https://fr.wikipedia.org/wiki/Katmandou");
+//   wrongAnswer.classList.add("show-response-false");
+//   wrongAnswer.style.visibility = "visible";
+//   wrongAnswer.style.background = "red";
+//   correctAnswer.style.visibility = "hidden";
+//   Container.classList.remove("question-click");
+// });
+
+// Btn1.addEventListener("click", () => {
+//   alert("En même temps elle était facile...");
+//   answer = prompt("Entrez votre nom");
+// });
+//   Container.innerHTML += "<h3>Bravo " + answer + "</h3>";
+// });
+
+// Btn2.addEventListener("click", () => {
+//   Container.remove.innerHTML += "value";
+// });
+
+// Container.addEventListener("click", (e) => {
+//   if ((e.target.value = "Btn1")) {
+//     alert("En même temps elle était facile...");
+//     answer = prompt("Entrez votre nom");
+//     Container.innerHTML += "<h3>Bravo " + answer + "</h3>";
+//   } else if ((e.target.value = "Btn2")) {
+//     Container.innerHTML += "null";
+//   }
+// });
+
+Container.addEventListener("click", (e) => {
+  if (e.target.id === "Btn1") {
+    correctAnswer.classList.add("show-response-true");
+    correctAnswer.style.visibility = "visible";
+    correctAnswer.style.background = "green";
+    wrongAnswer.style.visibility = "hidden";
+    Container.classList.add("question-click");
+    alert("En même temps elle était facile...");
+    answer = prompt("Entrez votre nom");
+    Container.innerHTML += "<h3>Bravo " + answer + "</h3>";
+  } else if (e.target.id === "Btn2") {
+    confirm(
+      "Non mais sérieux... T'as vraiment répondu Katmandou vieille chèvre ?"
+    );
+    wrongAnswer.classList.add("show-response-false");
+    wrongAnswer.style.visibility = "visible";
+    wrongAnswer.style.background = "red";
+    correctAnswer.style.visibility = "hidden";
+    answer = prompt("Vas-y rentre ton nom");
+    window.open("https://fr.wikipedia.org/wiki/Katmandou");
+    Container.innerHTML += "<h3>You lose " + answer + "</h3>";
+  } else {
+    Container.style.background = "questionContainer";
+  }
+});
+// Container.addEventListener("click", () => {
+//   Btn1.style.remove(".show-reponse-false");
+//   Btn2.style.remove(".show-response-true");
+// });
+
+// MOUSE MOVE
+const mousemove = document.querySelector(".mousemove");
+window.addEventListener("mousemove", (e) => {
+  mousemove.style.left = e.pageX + "px";
+  mousemove.style.top = e.pageY + "px";
+});
+
+window.addEventListener("mousedown", () => {
+  mousemove.style.transform = "scale(10) translate(-5%, 5%)";
+  mousemove.style.border = "solid rgba(217, 255, 0, 0.272)";
+});
+
+window.addEventListener("mouseup", () => {
+  mousemove.style.transform = "scale(1) translate(-50%, -50%)";
+  mousemove.style.border = "4px solid rgba(244, 192, 49, 0.278)";
+});
+
+Container.addEventListener("mouseenter", () => {
+  Container.style.background = "rgb(0, 0, 0, 0.5)";
+  Container.style.borderRadius = "50%";
+});
+
+Container.addEventListener("mouseout", () => {
+  // Container.classList.add(".questionContainer");
+  Container.style.background = "";
+});
+
+correctAnswer.addEventListener("mouseover", () => {
+  correctAnswer.style.transform = "rotate(180deg)";
+});
+
+wrongAnswer.addEventListener("mouseover", () => {
+  wrongAnswer.style.transform = "rotate(20deg)";
+});
+
+
+// ------------------------------------------------------------
+// KEYPRESS
+// ------------------------------------------------------------
+const keypressContainer = document.querySelector(".keypress-box");
+const key = document.getElementById("key");
+
+document.addEventListener("keypress", (e) => {
+  key.textContent = e.key;
+
+  if (e.key === "p") {
+    keypressContainer.style.background = "green";
+    keypressContainer.style.back;
+  } else if (e.key === "k") {
+    keypressContainer.style.background = "red";
+  } else {
+    keypressContainer.style.background = "";
+  }
+
+  // ring();
+});
+
+// -------------------------------------------------------
+// Pour ajouter un audio fichier (Enter.mp3) à la fonction "keypress"
+// const ring = (key) => {
+//   const audio = new Audio();
+//   audio.src = key + "./Enter.mp3";
+//   // audio.src = key + "z.mp3"; on appelle la fonction ring lorsqu'on appuie sur z
+//   Audio.play();
+// };
+// Evidemment déclarer la fonction en amont et non après la fonction
+
+
+// -------------------------------------------------------
+// ------------ LE SCROLL ----------- // 
+// -------------------------------------------------------
+const nav = document.querySelector(".nav");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 600) {
+    nav.style.top = 0;
+  } else {
+    nav.style.top = "";
+  }
+  //  else if (window.scrollY < 600) {
+  //   nav.style.top = -150;
+  // }
+});
+
+// -----------------------------------------------------------
+// Formulaires & Inputs Event
+
+const inputName = document.querySelector(`input[type="text"]`);
+const select = document.querySelector("select");
+const form = document.querySelector("form");
+let pseudo = "";
+let language = "";
+
+inputName.addEventListener("input", (e) => {
+  pseudo = e.target.value;
+});
+
+select.addEventListener("input", (e) => {
+  language = e.target.value;
+});
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (cgv.checked) {
+    // Afficher contenu des variables
+    document.querySelector("form > div").innerHTML = `
+    <h3>Pseudo : ${pseudo}</h3>
+    <h4>Langage préféré : ${language}</h4>
+    `;
+  } else {
+    alert(
+      "Veuillez acceptez les conditions générales de vente, et dépêche toi"
+    );
+  }
+});
+
+// -------------------------------------------
+// Load event
+// window.addEventListener("load", () => {
+//   console.log("doc chargés");
+// });
+
+// --------------------------------------------
+const boxes = document.querySelectorAll("box");
+boxes.forEach((box) => {
+  box.addEventListener("click", (e) => {
+    e.target.style.transform = "scale(0.7)";
+  });
+});
+
+//-------------------- Calculator -------------------//
+const buttons = document.querySelectorAll(".btn");
+const result = document.getElementById("result");
+
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    result.textContent += e.target.id;
+  });
+});
+
+equal.addEventListener("click", () => {
+  result.textContent = eval(result.textContent);
+});
+
+clear.addEventListener("click", () => {
+  result.textContent = "";
+});
+
+// AddEventListener Vs Onclick //
+// document.body.onclick = () => {
+//   console.log("click ! ");
+// };
+
+// Bubbling => plus de contenu sur gomakethings.com
+// document.body.addEventListener(
+//   "click",
+//   () => {
+//     console.log("click 1 !");
+//   },
+//   false
+// );
+
+// Usecapture
+// document.body.addEventListener(
+//   "click",
+//   () => {
+//     console.log("click 2 !");
+//   },
+//   true
+// );
+
+// ------------------------------------------------------------
+// Stop propagation //
+// Container.addEventListener("click", (e) => {
+//   alert("Es-tu sur de toi ???");
+//   e.stopPropagation();
+// });
+
+
+//-------------------------------------------------
+// removeEventListener //
+// ------------------------------------------------
+
+
+// BOM
+// console.log(window.innerHeight);
+// console.log(window.scrollY);
+// Container.addEventListener("click", () => {
+//   window.open("https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal");
+// });
+
+// Event adossés à window
+// alert("hello")
+// confirm
+
+// PROMPT
+// let answer;
+
+// Btn1.addEventListener("click", () => {
+//   answer = prompt("Entrez votre nom !");
+//   Container.innerHTML += "<h3>Bravo " + answer + "</h3>";
+// });
+
+// setTimeout(() => {
+//   Container.style.borderRadius = "300px";
+// }, 2000);
+
+// let interval = setInterval(() => {
+//   document.body.innerHTML += `<div class='box'><h2>Nouvelle boite</h2></div>`;
+// }, 10000);
+
+// document.body.addEventListener("click", (e) => {
+//   console.log(e.target);
+//   clearInterval(interval);
+// });
+
+// LOCATION
+// console.log(location.href);
+// console.log(location.host);
+// console.log(location.pathname);
+// console.log(location.search);
+
+// window.onload = () => {
+//   location.href = "https://twitter.fr";
+// };
+
+
+// --------------- HISTORY ------------------ //
+
+// console.log(history);
+// window.history.back();
+
+// window.addEventListener("mousemove", (e) => {
+//   nav.style.setProperty("--x", e.layerX + "px");
+//   nav.style.setProperty("--y", e.layerY + "px");
+// });
+
+
+// ------------------------------------ //
+// ------------- CSS ------------------ //
+// ------------------------------------ //
+
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  list-style: none;
+}
+
+body {
+  background: url(./Assets/Galaxy.jpg) no-repeat fixed center/cover;
+  font-family: "Times New Roman", Times, serif;
+  overflow-x: hidden;
+  overflow-y: visible;
+  height: 200vh;
+}
+
+.questionContainer {
+  background: url(./Assets/Space.jpg) no-repeat fixed center/cover;
+  padding: 5px;
+  border: none;
+  box-shadow: none;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.click-event-box {
+  border: none;
+  transition: 0.3s ease;
+  background: none;
+  padding: 10px;
+}
+
+#Btn1 {
+  text-align: center;
+  z-index: 10;
+  border: none;
+  border-radius: 8%;
+}
+#Btn1:hover {
+  background-color: rgba(155, 204, 247, 0.868);
+}
+#Btn2 {
+  text-align: center;
+  z-index: 10;
+  border: none;
+  border-radius: 8%;
+}
+#Btn2:hover {
+  background-color: rgba(155, 204, 247, 0.868);
+}
+
+h1 {
+  font-size: 3rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgba(188, 215, 238, 0.735);
+  text-shadow: 5px 1px 4px orangered;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  color: aliceblue;
+  text-shadow: 3px 1px 2px rgba(255, 166, 0, 0.65);
+  padding-bottom: 8px;
+}
+
+h3 {
+  font-size: 2rem;
+  font-family: "Times New Roman", Times, serif;
+  color: aliceblue;
+  text-shadow: 5px 1px 4px orange;
+}
+
+h4 {
+  font-size: 2rem;
+  font-family: "Times New Roman", Times, serif;
+  color: aliceblue;
+  text-shadow: 5px 1px 4px orange;
+}
+
+p {
+  font-size: 1.5rem;
+  font-family: "Times New Roman", Times, serif;
+  color: aliceblue;
+  text-shadow: 3px 1px 2px rgb(217, 255, 0);
+  visibility: hidden;
+  width: 300px;
+  border: 10px rgb(10, 64, 10);
+  border-radius: 25%;
+  margin: 10px auto 0;
+  opacity: 1;
+  transition: 0.6s;
+  transform: translateX(-200px);
+  z-index: 2;
+}
+
+.question-click {
+  background: url(./Assets/Buddha.jpg) no-repeat center;
+  background-size: contain;
+  border-radius: 50%;
+  /* border: 1px dashed red; */
+  padding: 2px;
+  transition: 0.6s;
+}
+
+.show-response-true {
+  /* background: url(./Assets/Correct.png) no-repeat fixed center/cover;
+  border-radius: 50%; */
+  border: 3px solid rgb(0, 255, 76);
+  /* padding: 2px; */
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.show-response-false {
+  /* background: url(./Assets/Incorrect.jpg) no-repeat fixed center/cover;
+  border-radius: 50%; */
+  border: 3px solid rgb(141, 4, 4);
+  /* padding: 2px; */
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mousemove {
+  height: 50px;
+  width: 50px;
+  border: 4px solid rgba(244, 192, 49, 0.278);
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.keypress-box {
+  background: none;
+  padding: none;
+  border: 2px;
+  border-radius: 20%;
+  /* width: 300px; */
+  height: auto;
+  /* text-align: center; */
+}
+
+.nav {
+  font-family: "Times New Roman", Times, serif;
+  color: aliceblue;
+  text-shadow: 5px 1px 4px orange;
+  text-align: center;
+  background: rgba(87, 124, 211, 0.611);
+  position: fixed;
+  width: 99%;
+  height: 50px;
+  border: 2px solid rgba(34, 34, 134, 0.702);
+  border-radius: 10%;
+  top: -150px;
+  transition: 0.5s;
+}
+
+nav::after {
+  content: "";
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(
+    circle closest-side,
+    rgba(255, 255, 255, 0.904),
+    transparent
+  );
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: 0.25s;
+  z-index: 20;
+  opacity: 0;
+  left: var(--x);
+  top: var(--y);
+}
+
+nav:hover::after {
+  opacity: 1;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0;
+}
+
+.form {
+  /* background: rgba(127, 114, 114, 0.457); */
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 20%;
+}
+
+.label-1 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: aliceblue;
+  text-shadow: 2px 1px 3px orange;
+}
+
+/* Calculator */
+
+.app {
+  display: grid;
+  width: 300px;
+  margin: 0 auto;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 50px repeat(5, 30px);
+  grid-template-areas:
+    "res res res res"
+    "7 8 9 reset"
+    "4 5 6 reset"
+    "1 2 3 reset"
+    "0 dot plus minus"
+    "equal equal times div";
+  background-color: rgba(0, 0, 0, 0.408);
+  border: 2px solid teal;
+  border-radius: 4px;
+}
+
+.h3 {
+  text-align: right;
+  margin: 7px 10px 0 0;
+  font-size: 2rem;
+  grid-area: res;
+}
+
+.button {
+  background-color: teal;
+  color: aliceblue;
+  border: 1px solid teal;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.button:hover {
+  background-color: rgb(6, 179, 179);
+}
+
+#equal {
+  grid-area: equal;
+}
+#clear {
+  grid-area: reset;
+}
+
+.special {
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.394);
+  text-align: center;
+  font-size: 1.5rem;
+  /* font-family: "Times New Roman", Times, serif; */
+  padding-top: 0px;
+}
