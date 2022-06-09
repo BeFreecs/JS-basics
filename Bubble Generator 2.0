@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+  <meta name="viewport" content="width=device-width" , intial-scale="1.0" />
+  <title>Calculator Project Part 2</title>
+  <link rel="Stylesheet" href="./Style.css" />
+</head>
+
+<html>
+  <body>
+    <h1>Shoot them all !!!</h1>
+    <main><h3></h3></main>
+  </body>
+
+  <script src="./Index.js"></script>
+</html>
+
+
+// ----------------------------------------- JS --------------------------------------------- //
+
+
+const counterDisplay = document.querySelector("h3");
+let counter = 0;
+
+const bubbleMaker = () => {
+  const bubble = document.createElement("span");
+  bubble.classList.add("bubble");
+  document.body.appendChild(bubble);
+
+  const size = Math.random() * 200 + 100 + "px";
+  bubble.style.height = size;
+  bubble.style.width = size;
+
+  bubble.style.top = Math.random() * 100 + 50 + "%";
+  bubble.style.left = Math.random() * 100 + "%";
+
+  const plusMinus = Math.random() > 0.5 ? 1 : -1;
+  bubble.style.setProperty("--left", Math.random() * 100 * plusMinus + "%");
+  bubble.style.setProperty("--top", Math.random() * 100 * plusMinus + "%");
+
+  bubble.addEventListener("click", () => {
+    bubble.remove();
+    counter++;
+    counterDisplay.textContent = counter;
+  });
+
+  setTimeout(() => {
+    bubble.remove();
+    
+    
+
+// ------------------------------------ CSS ----------------------------------------- // 
+
+
+body {
+  background: url(./Assets/Nebula.jpg) fixed no-repeat center/cover;
+  overflow: hidden;
+  min-height: 100vh;
+  cursor: crosshair;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 300px;
+  background: rgba(255, 166, 0, 0.6);
+  opacity: 0;
+  animation: anim 8s forwards;
+  filter: hue-rotate(0deg);
+}
+
+@keyframes anim {
+  to {
+    top: (-250px);
+    left: var(--left);
+    top: var(--top);
+    opacity: 1;
+    filter: hue-rotate(720deg);
+  }
+}
+
+h3 {
+  font-size: 10rem;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  color: aliceblue;
+  text-shadow: 3px 1px 4px rgba(255, 166, 0, 0.565);
+  margin-top: 30px;
+}
+
+h1 {
+  font-size: 8rem;
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: azure;
+  text-shadow: 3px 1px 4px rgba(255, 166, 0, 0.565);
+  margin-top: none;
+}
