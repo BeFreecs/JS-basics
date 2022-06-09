@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta htp-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="Stylesheet" href="./Style.css" />
+  </head>
+
+  <body>
+    <main>
+      <h3 id="JavaScript">JavaScript</h3>
+      <h3 id="Php">Php</h3>
+      <h3 id="Python">Python</h3>
+    </main>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Rappel des types de données
+let string = "Chaine";
+let number = 25;
+let boolean = true;
+let maVariable; // type Undefined
+
+// Tableaux
+let array = ["Bordeaux", "Toulouse", "Nantes"];
+// console.log(array[0][3]); pour avoir la lettre d de bordeau s'afficher
+
+let array2 = ["Bordeaux", 24, true, [1, 2], { nom: "Denis" }];
+// console.log(array2[4].nom);
+
+let objet = {
+  pseudo: "Denis",
+  age: 33,
+  technos: ["Javascript", "React", "NodeJs"],
+  admin: false,
+};
+
+// objet.adresse = "22 Rue du code";
+// console.log(objet);
+
+let data = [
+  {
+    pseudo: "Denis",
+    age: 32,
+    technos: ["Javascript", "React", "NodeJs"],
+    admin: false,
+  },
+  {
+    pseudo: "Fabien",
+    age: 33,
+    technos: ["CSS", "React", "NodeJs"],
+    admin: false,
+  },
+  {
+    pseudo: "Samia",
+    age: 34,
+    technos: ["PHP", "React", "NodeJs"],
+    admin: true,
+  },
+];
+
+// console.log(data[2].pseudo);
+
+// -----------------------------------------------
+// STRUCTURE DE CONTROLE
+// -----------------------------------------------
+if (data[1].age > data[0].age) {
+  //   console.log(data[1].pseudo + " est plus agé que " + data[0].pseudo);
+} else {
+  // Valeur si faux
+}
+
+// ------------
+// While
+let w = 0;
+
+while (w < 10) {
+  w++;
+  //   console.log("La valeur de w est de : " + w);
+}
+
+// Do While
+let d = 0;
+
+do {
+  d++;
+  //   console.log(d);
+} while (d < 5);
+
+// Les boucles FOR
+for (const user of data) {
+  //   document.body.innerHTML += `<li>${user.pseudo} - ${user.age} ans</li>`;
+}
+
+// On déclare la valeur de i / jusqu'où on boucle /
+// on incrémente i si la condition 2 n'est pas remplie
+for (i = 0; i < data.length; i++) {
+  //   console.log(i);
+  //   console.log(data[i].technos[0]);
+  //   document.body.innerHTML += "<h2>" + data[i].technos.join(" / ") + "</h2>";
+}
+
+document.body.addEventListener("click", (e) => {
+  //   console.log(e.target.id);
+  //   if (e.target.id === "JavaScript") {
+  //     document.body.style.background = "green";
+  //   } else if (e.target.id === "Php") {
+  //     document.body.style.background = "red";
+  //   } else if (e.target.id === "Pyton") {
+  //     document.body.style.background = "yellow";
+  //   } else {
+  //     document.body.style.background = "white";
+  //   }
+  switch (e.target.id) {
+    case "JavaScript":
+      document.body.style.background = "yellow";
+      break;
+    case "Php":
+      document.body.style.background = "red";
+      break;
+    case "Python":
+      document.body.style.background = "blue";
+      break;
+    default:
+      null;
+  }
+});
+
