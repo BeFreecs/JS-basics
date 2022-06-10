@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,23 +20,17 @@
   </body>
 </html>
 
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 // Rappel des types de données
-let string = "Chaine";
-let number = 25;
+let String = "Chaine";
+let Number = 25;
 let boolean = true;
 let maVariable; // type Undefined
 
 // Tableaux
-let array = ["Bordeaux", "Toulouse", "Nantes"];
+let Array = ["Bordeaux", "Toulouse", "Nantes"];
 // console.log(array[0][3]); pour avoir la lettre d de bordeau s'afficher
 
-let array2 = ["Bordeaux", 24, true, [1, 2], { nom: "Denis" }];
+let Array2 = ["Bordeaux", 24, true, [1, 2], { nom: "Denis" }];
 // console.log(array2[4].nom);
 
 let objet = {
@@ -105,9 +100,9 @@ for (const user of data) {
 // On déclare la valeur de i / jusqu'où on boucle /
 // on incrémente i si la condition 2 n'est pas remplie
 for (i = 0; i < data.length; i++) {
-  //   console.log(i);
+  // console.log(i);
   //   console.log(data[i].technos[0]);
-  //   document.body.innerHTML += "<h2>" + data[i].technos.join(" / ") + "</h2>";
+  // document.body.innerHTML += "<h2>" + data[i].technos.join(" / ") + "</h2>";
 }
 
 document.body.addEventListener("click", (e) => {
@@ -136,3 +131,161 @@ document.body.addEventListener("click", (e) => {
   }
 });
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+                                              // JS //
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// ---------------------------------------------
+// ------- METHODES STRING ------- //
+// ---------------------------------------------
+let string = "JavaScript est un langage orienté objet";
+// eval(parseInt("1" + 2)) permet de calculer avec la méthode eval() et parseInt() transforme une string en number
+// isNaN() est une méthode qui permet de savoir si nous avons des number ou non avec une réponse du type true ou false
+// console.log(string.length) permet d'avoir la longueur de la chaine de caractère
+
+// console.log(typeof string);
+
+// console.log(string.indexOf("est"));
+// me donne la colonne à laquelle se trouve (pour la première fois) le premier mot "est"
+
+// let newString = string.slice(20);
+// let newString = string.slice(5, 17);
+// console.log(newString);
+
+// console.log(string.split("i"));
+
+// console.log(string.toLowerCase());
+// console.log(string.toUpperCase());
+
+// console.log(string.replace("JavaScript", "PHP"));
+// permet de remplacer une chaine de caractère
+
+// ---------------------------------
+// Méthodes Numbers
+// ---------------------------------
+
+let number = 42.12345;
+let numberString = "42.12345 est une chiffre";
+// console.log(number.toFixed(1));
+// console.log(parseInt("43"));
+// console.log(parseInt(numberString));
+// console.log(parseFloat(numberString));
+
+// --------------------------------
+// MATH
+// ----------------------------------
+// console.log(Math.PI);
+// console.log(Math.round(4.5));
+// console.log(Math.floor(4.9));
+// console.log(Math.ceil(4.1));
+// console.log(Math.pow(2, 7));
+// console.log(Math.sqrt(16));
+// console.log(Math.random() * 100);
+// console.log(Math.floor(Math.random() * 100));
+
+// ---------------------------------
+// METHODES ARRAY
+// ---------------------------------
+
+let array1 = ["JavaScript", "PHP", "Python"];
+let array2 = ["Ruby", "Solidity", "React"];
+
+let newArray = array1.concat(array2);
+// console.log(newArray);
+
+// let newArray =[...array1, ...array2]
+// console.log(newArray);
+
+// console.log(array2.join("/"));
+
+// console.log(array2.slice(1));
+// console.log(newArray.slice(1, 4));
+
+// array2.forEach((languages) => console.log(languages));
+
+console.log(array2.every((languages) => languages === "Ruby"));
+console.log(array2.some((languages) => languages === "Ruby"));
+
+// let shift = array2.shift();
+// console.log(array2);
+// .shift() enlève le premier élément du tableau array si il est sous la forme array2
+// si on log(shift) le 1er élément est renvoyé à la console
+// console.log(array2.pop());
+// .pop() renvoi le dernier élément du tableau
+
+// const restArray = array2.splice(1, 1, "C++");
+// console.log(array2);
+// "C++" remplace en index 1, 1 seul élément // si const restArray = array2.splice(1, 2, "C++") alors C++ replace en index 1, 2 éléments
+
+// const restArray = array2.splice(1, 1, ...array1);
+// console.log(array2);
+
+// ------------------------------------------------------------------------------------------------------------------------------------------- //
+                                                    // !!! IMPORTANT !!! //
+// ------------------------------------------------------------------------------------------------------------------------------------------- //
+
+let arrayNumber = [4, 74, 28, 12, 1];
+console.log(arrayNumber.reduce((x, y) => x + y));
+// permet d'additionner les valeurs d'un tableau de chiffres
+arrayNumber.push(17);
+// permet de pousser une valeur de chiffre dans mon tableau
+// console.log(arrayNumber);
+
+// FILTER, SORT, MAP //
+
+// FILTER
+// console.log(arrayNumber.filter((number) => number > 10));
+// filtre tous les éléments supérieur à 10 et me les renvoie
+
+// SORT
+// console.log(arrayNumber.sort());
+// console.log(arrayNumber.sort((a, b) => a - b));
+// réorganise les éléments chiffres du tableau dans l'ordre croissant (si on veut décroissant : définir la fonction en "b - a")
+// console.log(arrayNumber.filter((number) => number > 10).sort((a, b) => a - b));
+
+// MAP
+// arrayNumber
+//   .filter((number) => number > 10)
+//   .sort((a, b) => a - b)
+//   .map((number) => (document.body.innerHTML += `<li> ${number} </li>`).join(" "));
+
+// arrayNumber
+//   .map((number) => (document.body.innerHTML += `<li> ${number} </li>`))
+//   .join("");
+
+// ------------------------------------------------------------------------------------------------
+// ------------------------ !!! METHODES OBJETS !!! ----------------------------- //
+// ------------------------------------------------------------------------------------------------
+
+document.body.innerHTML = data
+  // .filter((user) => user.admin === false)
+  // .filter((user) => user.pseudo.includes("a"))
+  .sort((a, b) => b.age - a.age)
+  .map(
+    (user) =>
+      `<div class="user-card"><h2>${user.pseudo}</h2><p> Age: ${
+        user.age
+      } ans</p><p> Status: ${
+        user.admin ? "Modérateur" : "Membre"
+      }</p><p> Technologie préféré : ${user.technos[0]}</div>`
+  )
+  .join(" ");
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                // CSS //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+* {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+.user-card {
+  border: 2px solid orange;
+  margin: 10px;
+}
